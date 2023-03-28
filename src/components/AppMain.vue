@@ -25,9 +25,12 @@ export default {
 </script>
   
 <template>
-  <div>
-    <div class="card-container">
+  <div >
+    <div v-if="this.store.cards.length == 50" class="card-container">
       <AppCard v-for="card in store.cards" :card="card"></AppCard>
+    </div>
+    <div class="loading" v-else>
+      Caricamento In corso
     </div>
   </div>
 </template>
