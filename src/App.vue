@@ -1,17 +1,20 @@
 <script>
 import AppMain from './components/AppMain.vue';
 import '@fortawesome/fontawesome-free/css/all.css';
+import AppHeader from './components/AppHeader.vue';
 export default {
     data() {
         return {};
     },
     components: {
-      AppMain,
-    }
+    AppMain,
+    AppHeader
+}
 }
 </script>
 
 <template>
+  <AppHeader></AppHeader>
   <AppMain></AppMain>
 </template>
 

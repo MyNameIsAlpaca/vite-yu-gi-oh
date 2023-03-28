@@ -5,12 +5,17 @@ export default {
         return {
             store,
             add: true,
-        }
-    },
+          }
+        },
     props : {
-        card: Object,
-    }
-}
+      card: Object,
+    },
+    methods: {
+      addClick(){
+        this.store.counterClick++
+      }
+    },
+  }
 </script>
 
 <template>
@@ -21,12 +26,12 @@ export default {
             <span v-if="card.card_prices[0].amazon_price == 0.00">Non Disponibile</span>
             <div v-else>
               <span>{{ card.card_prices[0].amazon_price }}$</span>
-              <div v-if="add" class="addCart" @click="add = !add">
+              <div v-if="add" class="addCart" @click="add = !add, addClick()">
                 <i class="fa-solid fa-cart-plus"></i>
                 <span> Aggiungi al carrello</span>
               </div>
               <div class="added" v-else>
-                <Strong>Aggiunto!</Strong>
+                Aggiunto!
               </div>
             </div>
       </div>
@@ -45,9 +50,6 @@ export default {
   img {
     max-width: 100%;
   }
-  strong {
-    color: rgb(255, 208, 0);
-  }
   .image-card {
     display: flex;
     flex-direction: column;
@@ -63,6 +65,7 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
+        color: rgb(255, 208, 0);
       }
     }
   }
