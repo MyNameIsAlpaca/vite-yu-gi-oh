@@ -39,5 +39,28 @@ export default {
   gap: 30px;
   justify-content: space-between;
   padding: 40px;
+  background-position: center;
+  position: relative;
+  &::before {
+    background-image: url(/background.jpg);
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+    left: 0;
+    top: 0;
+  }
+  &::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(41, 30, 30, 0.397);
+}
 }
 </style>

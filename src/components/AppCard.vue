@@ -26,9 +26,9 @@ export default {
 .card {
   display: flex;
   width: 150px;
-  background-color: darkblue;
   color: white;
   text-align: center;
+  z-index: 1;
   img {
     max-width: 100%;
   }
