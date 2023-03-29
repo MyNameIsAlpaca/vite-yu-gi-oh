@@ -5,11 +5,12 @@ export const store = reactive({
   
   cards: [],
 
+  defaultCardLink: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=50&offset=0',
+
   cardsLink: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=50&offset=0',
 
   counterClick: 0,
 
   searchData: "",
-
 
 });

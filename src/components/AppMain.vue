@@ -20,15 +20,19 @@ export default {
 methods: {
       newLinkGen(){
         this.store.cardsLink = this.store.cardsLink + "&fname=" + this.store.searchData
-        console.log(this.store.cardsLink)
         axios.get(this.store.cardsLink).then((res)=>{
         this.store.cards = res.data.data
         this.store.searchData = ""
-    });
+    }).catch(function () {
+
+      alert("La tua ricerca non ha prodotto nessun risultato")
+
+
+  });;
       },
     },
   created() {
-    axios.get(this.store.cardsLink).then((res)=>{
+    axios.get(this.store.defaultCardLink).then((res)=>{
       this.store.cards = res.data.data
     });
   },  
@@ -37,10 +41,12 @@ methods: {
   
 <template>
   <div class="card-container">
-    <AppSearch class="search" @newLinkGen="newLinkGen()"></AppSearch>
     <div class="title">
       <h1>Benvenuto nello shop di Yu-Gi-Oh</h1>
       <h3>Aggiungi al carrello tutte le carte che desideri acquistare</h3>
+      <AppSearch class="search" @newLinkGen="newLinkGen()"></AppSearch>
+      <span v-if="this.store.cards.length == 1"> è disponibile solo 1 carta.</span>
+      <span v-else>Sono disponibili {{ this.store.cards.length }} carte!</span>
     </div>
     <div v-if="this.store.cards.length != 0" class="card-container-inner">
       <AppCard v-for="card in store.cards" :card="card"></AppCard>
