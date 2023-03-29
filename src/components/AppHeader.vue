@@ -1,12 +1,15 @@
 <script>
 import { store } from '../store';
+import AppSearch from './AppSearch.vue';
 export default {
-  name: "AppHeader",
-    data() { 
+    name: "AppHeader",
+    data() {
         return {
-          store,
-        }
+            store,
+        };
     },
+
+    components: { AppSearch }
 }
 </script>
 
@@ -26,6 +29,11 @@ export default {
   background-image: url(/header.jpg);
   background-position: center;
   color: white;
+  .search{
+    position: absolute;
+    bottom: 0;
+
+  }
   .cart{
     position: absolute;
     right: 20px;

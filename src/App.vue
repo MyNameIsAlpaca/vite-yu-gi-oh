@@ -14,9 +14,12 @@ export default {
 </script>
 
 <template>
-  <AppHeader></AppHeader>
-  <AppMain></AppMain>
+  <AppHeader class="header"></AppHeader>
+  <AppMain class="mainSection"></AppMain>
 </template>
 
 <style scoped>
+.mainSection {
+  min-height: 602px;
+}
 </style>
